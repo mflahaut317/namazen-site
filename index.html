@@ -247,24 +247,19 @@ footer .wrap{display:grid;gap:8px}
           <h3><a href="#chakras">Équilibrage et harmonisation des chakras</a></h3>
           <p>Retrouver votre énergie et votre alignement intérieur, avec l'aide des pierres et du travail énergétique.</p>
         </article>
-        <article class="soin">
+        <article class="soin soin-extra" hidden>
           <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 9 12l7 15 7-15-7-7Z"/><path d="M9 12h14M13 12l3 15 3-15"/></svg></div>
           <h3><a href="#lithotherapie">Lithothérapie</a></h3>
           <p>Des bracelets et colliers faits main, en pierres naturelles choisies pour vous.</p>
         </article>
-        <article class="soin">
-          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 26V14l4-6 2 3h3l4 3v12"/><path d="M20 26c0-4 2-6 5-6v6"/><circle cx="11" cy="14" r=".8" fill="currentColor"/></svg></div>
-          <span class="tag">Pour vos animaux</span>
-          <h3><a href="#communication-animale">Communication animale</a></h3>
-          <p>À partir d'une simple photo, écoutez ce que votre animal a à vous dire. Il a tant à partager.</p>
-        </article>
-        <article class="soin">
+        <article class="soin soin-extra" hidden>
           <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15 16 6l11 9"/><path d="M8 13v13h16V13"/><path d="M16 24c-3-2-4-4-2.5-6 1-1.2 2.5-.6 2.5.6 0-1.2 1.5-1.8 2.5-.6 1.5 2 .5 4-2.5 6Z"/></svg></div>
           <span class="tag">Pour votre maison</span>
           <h3><a href="#passeuse-de-lieux">Passeuse de lieux</a></h3>
           <p>Une maison lourde, un lieu où l'on dort mal : j'aide à apaiser et harmoniser l'énergie de votre lieu de vie.</p>
         </article>
       </div>
+      <div style="display:flex;justify-content:center;margin-top:28px"><button class="btn ghost" id="voir-plus" type="button" aria-expanded="false">Voir plus de soins</button></div>
     </div>
   </section>
 
@@ -278,6 +273,7 @@ footer .wrap{display:grid;gap:8px}
         <li><span>Préparez vos questions : ce que vous voulez lui dire ou lui demander.</span></li>
         <li><span>Recevez le compte rendu de l'échange et parlons-en ensemble.</span></li>
       </ol>
+      <a class="btn ghost" href="#communication-animale" style="margin-top:26px">En savoir plus</a>
     </div>
     <blockquote class="quote" style="margin:0">Le lien qui nous unit est une force… prenons-en soin.</blockquote>
   </section>
@@ -671,6 +667,10 @@ footer .wrap{display:grid;gap:8px}
     if(t)t.scrollIntoView();
   }
   window.addEventListener('hashchange',route);
+  var vp=document.getElementById('voir-plus');
+  vp.addEventListener('click',function(){var open=vp.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.soin-extra').forEach(function(c){c.hidden=open});
+    vp.setAttribute('aria-expanded',String(!open));vp.textContent=open?'Voir plus de soins':'Voir moins';});
   var imgs=[].slice.call(document.querySelectorAll('.galerie img')), lb=document.getElementById('lightbox'), lbi=document.getElementById('lb-img'), cur=0;
   function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt;lb.hidden=false;document.body.style.overflow='hidden';}
   function close(){lb.hidden=true;document.body.style.overflow='';}
