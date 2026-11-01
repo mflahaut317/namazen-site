@@ -215,6 +215,7 @@ footer .wrap{display:grid;gap:8px}
 }
 @media (max-width:540px){
   .soins{grid-template-columns:1fr}
+  .soins:not(.open) .soin:nth-child(n+4){display:none}
   .section{padding-block:52px}
 }
 @media (prefers-reduced-motion:no-preference){
@@ -789,7 +790,9 @@ footer .wrap{display:grid;gap:8px}
   var vp=document.getElementById('voir-plus');
   vp.addEventListener('click',function(){var open=vp.getAttribute('aria-expanded')==='true';
     document.querySelectorAll('.soin-extra').forEach(function(c){c.hidden=open});
-    vp.setAttribute('aria-expanded',String(!open));vp.textContent=open?'Voir plus de soins':'Voir moins';});
+    document.querySelector('.soins').classList.toggle('open',!open);
+    vp.setAttribute('aria-expanded',String(!open));vp.textContent=open?'Voir plus de soins':'Voir moins';
+    if(open)document.getElementById('soins').scrollIntoView({behavior:'smooth'});});
   var imgs=[].slice.call(document.querySelectorAll('.galerie img')), lb=document.getElementById('lightbox'), lbi=document.getElementById('lb-img'), cur=0;
   function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt;lb.hidden=false;document.body.style.overflow='hidden';}
   function close(){lb.hidden=true;document.body.style.overflow='';}
