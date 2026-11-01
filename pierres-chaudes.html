@@ -671,7 +671,7 @@ footer .wrap{display:grid;gap:8px}
   var pages=[].slice.call(document.querySelectorAll('.page'));
   var homeTitle='Namazen · Soins énergétiques et réflexologie à Carnières';
   // Adresses propres (namazen59.fr/lahochi) sur le vrai site ; repli sur #lahochi ailleurs (fichier local, aperçu).
-  var clean=/^https?:$/.test(location.protocol)&&!!history.pushState;
+  var clean=/(^|\.)namazen59\.fr$|github\.io$|^127\.0\.0\.1$|^localhost$/.test(location.hostname)&&!!history.pushState;
   function pageFor(slug){return slug?document.getElementById('p-'+slug):null}
   function current(){
     var h=decodeURIComponent(location.hash.slice(1));
