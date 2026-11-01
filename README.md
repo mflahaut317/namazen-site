@@ -14,5 +14,5 @@ Le site peut être publié gratuitement avec GitHub Pages (Settings > Pages > br
 
 ## À compléter
 
-- Tarifs : Lahochi, chakras, communication animale, passeuse de lieux.
-- Photos : `images/hero.jpg` vient de l'affiche. La remplacer par de vraies photos de Virginie et du cabinet.
+- Tarifs : volontairement « sur demande » partout.
+- Photos : ajouter une photo de Virginie (le cabinet est déjà en photo).

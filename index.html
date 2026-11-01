@@ -60,8 +60,8 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:col
 
 /* soins */
 .band{background:var(--paper-2);border-block:1px solid var(--line)}
-.soins{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.soin{grid-column:span 2;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:10px;align-content:start}
+.soins{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.soin{grid-column:span 1;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:10px;align-content:start}
 .soin .ico{width:52px;height:52px;border-radius:50%;background:var(--sage-soft);display:grid;place-items:center;color:var(--sage)}
 .soin .ico svg{width:28px;height:28px}
 .soin p{color:var(--ink-soft);font-size:.98rem}
@@ -128,6 +128,18 @@ section[id],.page{scroll-margin-top:84px}
 .fb{display:inline-flex;align-items:center;gap:8px}
 .fb svg{width:18px;height:18px}
 @media (max-width:860px){.page-grid{grid-template-columns:1fr;gap:0}}
+.galerie{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px}
+.galerie figure{margin:0;min-width:0;overflow:hidden;border-radius:14px;border:1px solid var(--line)}
+.galerie figure:first-child{grid-row:span 2}
+.galerie img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.galerie figure:first-child img{aspect-ratio:auto}
+.formations{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.diplome{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:8px;align-content:start}
+.diplome small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--gold);font-weight:700}
+.diplome h3{font-size:1.35rem;color:var(--sage)}
+.diplome p{color:var(--ink-soft);font-size:.95rem}
+.diplome .meta{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;font-size:.9rem}
+@media (max-width:860px){.galerie{grid-template-columns:1fr 1fr;grid-template-rows:auto}.galerie figure:first-child{grid-row:auto;grid-column:span 2}.galerie figure:first-child img{aspect-ratio:4/3}}
 footer{padding-block:36px;font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--line)}
 footer .wrap{display:grid;gap:8px}
 
@@ -159,7 +171,8 @@ footer .wrap{display:grid;gap:8px}
     </a>
     <ul>
       <li><a href="#soins">Les soins</a></li>
-      <li><a href="#animaux">Pour vos animaux</a></li>
+      <li><a href="#cabinet">Le cabinet</a></li>
+      <li><a href="#formations">Formations</a></li>
       <li><a href="#virginie">Qui suis-je</a></li>
       <li><a href="#avis">Témoignages</a></li>
       <li><a href="#tarifs">Rendez-vous</a></li>
@@ -181,8 +194,8 @@ footer .wrap{display:grid;gap:8px}
       <p class="note">Soins en cabinet uniquement, sur rendez-vous.</p>
     </div>
     <figure class="photo" style="margin:0">
-      <img src="images/hero.jpg" alt="Une femme souriante entourée d'un cheval, de chiens et de chats, dans un pré au soleil couchant">
-      <span class="hand">une bulle de douceur ♡</span>
+      <img src="images/cabinet-table.jpg" alt="La salle de soin du cabinet Namazen, avec la table de soin et les lumières douces">
+      <span class="hand">votre bulle de douceur ♡</span>
     </figure>
   </section>
 
@@ -210,9 +223,19 @@ footer .wrap{display:grid;gap:8px}
           <p>La stimulation des zones réflexes du pied pour une détente profonde et un bien-être global. Très appréciée des enfants agités ou qui dorment mal.</p>
         </article>
         <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18c0-5 3-9 8-9s8 4 8 9"/><path d="M6 24h20"/><path d="M12 9V5M20 9V5M16 9V3"/></svg></div>
+          <h3><a href="#magnetisme">Magnétisme et Tuina du dos</a></h3>
+          <p>Le magnétisme traditionnel chinois et le massage Tuina du dos, avec ou sans ventouses. Aussi possible à distance, sur photo.</p>
+        </article>
+        <article class="soin">
           <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="16" cy="7" r="2.5"/><path d="M16 10v9M9 15l7 2 7-2M8 25c3-3 5-4 8-4s5 1 8 4"/><circle cx="16" cy="14" r=".6" fill="currentColor"/></svg></div>
           <h3><a href="#chakras">Équilibrage et harmonisation des chakras</a></h3>
           <p>Retrouver votre énergie et votre alignement intérieur, avec l'aide des pierres et du travail énergétique.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 9 12l7 15 7-15-7-7Z"/><path d="M9 12h14M13 12l3 15 3-15"/></svg></div>
+          <h3><a href="#lithotherapie">Lithothérapie</a></h3>
+          <p>Des bracelets et colliers faits main, en pierres naturelles choisies pour vous.</p>
         </article>
         <article class="soin">
           <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 26V14l4-6 2 3h3l4 3v12"/><path d="M20 26c0-4 2-6 5-6v6"/><circle cx="11" cy="14" r=".8" fill="currentColor"/></svg></div>
@@ -256,9 +279,41 @@ footer .wrap{display:grid;gap:8px}
       <ol class="timeline">
         <li><b>1998</b>Diplôme d'État d'infirmière</li>
         <li><b>2002</b>Diplôme de puéricultrice</li>
-        <li><b>2019</b>Réflexologie plantaire bien-être et détente, IHM-Nord, Cambrai</li>
-        <li><b>Ensuite</b>Magnétisme traditionnel chinois, Access Bars, Lahochi, chakras, communication animale, passeuse de lieux. Toutes les formations suivies en présentiel.</li>
+        <li><b>2019</b>Premières certifications en réflexologie plantaire et en magnétisme, IHM-Nord, Cambrai</li>
+        <li><b>Depuis</b>Praticienne en soins énergétiques et passeuse de lieux, toujours formée en présentiel. <a href="#formations">Voir mes formations</a></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="wrap section" id="cabinet">
+    <div class="section-head">
+      <p class="hand">Le cabinet</p>
+      <h2>Un lieu calme, pensé pour la détente</h2>
+      <p style="color:var(--ink-soft)">Les soins ont lieu au cabinet de Carnières : lumière douce, bois flotté, plaids et coin d'accueil pour prendre le temps avant et après la séance.</p>
+    </div>
+    <div class="galerie">
+      <figure><img src="images/cabinet-soin.jpg" alt="La table de soin, avec son coussin et un tapis bleu" loading="lazy"></figure>
+      <figure><img src="images/cabinet-namaste.jpg" alt="Le coin d'accueil avec la banquette et l'inscription Namasté au mur" loading="lazy"></figure>
+      <figure><img src="images/cabinet-accueil.jpg" alt="Un fauteuil, un mur végétal et un petit autel avec une statuette" loading="lazy"></figure>
+      <figure><img src="images/cabinet-vue.jpg" alt="Vue de la salle de soin depuis l'entrée" loading="lazy"></figure>
+      <figure><img src="images/cabinet-table.jpg" alt="La salle de soin et la porte d'entrée du cabinet" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="band" id="formations">
+    <div class="wrap section">
+      <div class="section-head">
+        <p class="hand">Formations et certificats</p>
+        <h2>Des formations suivies en présentiel</h2>
+        <p style="color:var(--ink-soft)">Avant les soins énergétiques, Virginie a été infirmière (1998) puis puéricultrice (2002). Ses certificats sont affichés au cabinet.</p>
+      </div>
+      <div class="formations">
+        <article class="diplome"><small>IHM-Nord, Cambrai</small><h3>Praticienne en réflexologie plantaire chinoise</h3><p>« Bien-être et détente ». 21 heures de formation et épreuves pratiques réussies.</p><span class="meta">Mars 2019</span></article>
+        <article class="diplome"><small>IHM-Nord, Cambrai</small><h3>Praticienne en magnétisme traditionnel chinois</h3><p>42 heures de formation : magnétisme, pose des ventouses, Tuina du dos et bases de la réflexologie plantaire chinoise.</p><span class="meta">Décembre 2019</span></article>
+        <article class="diplome"><small>Chrysalid</small><h3>Équilibrage et harmonisation des chakras</h3><p>Formation suivie avec succès, certificat de pratique.</p></article>
+        <article class="diplome"><small>Sautreau Academy, Cambrai</small><h3>Massage bien-être aux pierres chaudes</h3><p>Technique de massage pierres chaudes, certificat n° 0002/2022.</p><span class="meta">Mai et juin 2022</span></article>
+      </div>
+      <p class="small" style="margin-top:20px">Également formée à l'Access Bars, au Lahochi, à la lithothérapie, à la communication animale et au travail de passeuse de lieux.</p>
     </div>
   </section>
 
@@ -288,7 +343,7 @@ footer .wrap{display:grid;gap:8px}
     <div class="split">
       <div class="card">
         <h3>Tarifs sur demande</h3>
-        <p style="margin-top:14px">Chaque soin est différent, et un tarif adapté est proposé aux enfants et aux nourrissons. Écrivez à Virginie pour connaître le tarif du soin qui vous intéresse.</p>
+        <p style="margin-top:14px">Chaque soin est différent, et un tarif adapté est proposé aux enfants et aux nourrissons. Écrivez à Virginie pour connaître le tarif du soin qui vous intéresse. Des forfaits de 4 ou 5 séances sont aussi proposés.</p>
         <p class="small">Certaines mutuelles remboursent la réflexologie. Vérifiez auprès de la vôtre : une facture vous est remise après chaque séance.</p>
       </div>
       <div class="card contact-card" id="contact">
@@ -476,6 +531,64 @@ footer .wrap{display:grid;gap:8px}
         <h3>Bon à savoir</h3>
         <p class="small" style="margin-top:10px">Contactez Virginie pour en parler avant tout rendez-vous.</p>
         <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20vous%20parler%20d%27un%20lieu." target="_blank" rel="noopener">En parler sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-magnetisme" data-title="Magnétisme et Tuina du dos à Carnières, près de Cambrai · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Le magnétisme traditionnel chinois</p>
+    <h1>Magnétisme et Tuina du dos</h1>
+    <p class="lead">Virginie est certifiée praticienne en magnétisme traditionnel chinois (IHM-Nord, 42 heures). Elle propose le magnétisme par les mains, le massage Tuina du dos, avec ou sans pose de ventouses, et des séances de magnétisme à distance à partir d'une photo.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Environ 1 h</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>Au cabinet ou à distance</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Le Tuina du dos</h2>
+        <p>Un massage traditionnel chinois énergique et dynamique, et non un massage relaxant : pressions, étirements, pétrissages et mobilisations le long du dos. Les ventouses peuvent compléter le soin si vous le souhaitez.</p>
+        <h2>Le magnétisme</h2>
+        <p>Par l'imposition des mains, des passes et le souffle, le magnétisme accompagne le corps vers la détente et l'équilibre. Il convient à tous les âges.</p>
+        <h2>À distance, sur photo</h2>
+        <ol class="steps">
+          <li><span>Envoyez une photo récente de la personne concernée.</span></li>
+          <li><span>Convenez d'un moment de séance avec Virginie.</span></li>
+          <li><span>Restez au calme pendant la séance, puis faites un retour à Virginie.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Après un Tuina, buvez beaucoup d'eau ou de thé vert. Le magnétisme ne remplace pas un avis médical ni un traitement en cours.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20s%C3%A9ance%20de%20magn%C3%A9tisme%20ou%20de%20Tuina." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-lithotherapie" data-title="Bijoux en lithothérapie · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Des pierres choisies pour vous</p>
+    <h1>Lithothérapie</h1>
+    <p class="lead">Virginie fabrique à la main des bracelets et des colliers en pierres naturelles. Chaque bijou est composé selon vos envies et ce que vous traversez.</p>
+    <div class="facts">
+      <div><small>Bijoux</small><strong>Bracelets et colliers</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>Au cabinet</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Comment ça se passe ?</h2>
+        <ol class="steps">
+          <li><span>Un échange sur ce que vous recherchez : apaisement, énergie, confiance…</span></li>
+          <li><span>Virginie choisit les pierres avec vous.</span></li>
+          <li><span>Elle monte le bijou à la main, à votre taille.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Un bijou est aussi une belle idée de cadeau. La lithothérapie relève du bien-être et ne remplace pas un avis médical.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20un%20bijou%20en%20lithoth%C3%A9rapie." target="_blank" rel="noopener">Commander sur WhatsApp</a>
       </aside>
     </div>
   </article>
