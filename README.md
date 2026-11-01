@@ -10,7 +10,9 @@ Ouvrir `index.html` dans un navigateur.
 
 ## Mettre en ligne
 
-Le site peut être publié gratuitement avec GitHub Pages (Settings > Pages > branche `main`, dossier `/`), puis relié à un nom de domaine comme namazen.fr.
+Le site peut être publié gratuitement avec GitHub Pages (Settings > Pages > branche `main`, dossier `/`), relié au domaine namazen59.fr (DNS chez IONOS, fichier `CNAME`).
+
+Site en ligne : https://namazen59.fr
 
 ## À compléter
 
