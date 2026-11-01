@@ -1,0 +1,18 @@
+# Namazen
+
+Site de Namazen, le cabinet de soins énergétiques de Virginie Gorczinski-Petit à Carnières (59217).
+
+Site statique en une seule page (`index.html`), sans outil de build. Chaque soin a sa propre vue, accessible par son ancre (`#reflexologie`, `#access-bars`, `#lahochi`, `#chakras`, `#communication-animale`, `#passeuse-de-lieux`).
+
+## Voir le site en local
+
+Ouvrir `index.html` dans un navigateur.
+
+## Mettre en ligne
+
+Le site peut être publié gratuitement avec GitHub Pages (Settings > Pages > branche `main`, dossier `/`), puis relié à un nom de domaine comme namazen.fr.
+
+## À compléter
+
+- Tarifs : Lahochi, chakras, communication animale, passeuse de lieux.
+- Photos : `images/hero.jpg` vient de l'affiche. La remplacer par de vraies photos de Virginie et du cabinet.

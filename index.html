@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Namazen · Soins énergétiques et réflexologie à Carnières</title>
+<meta name="description" content="Réflexologie plantaire, Access Bars, Lahochi, chakras, communication animale et passeuse de lieux à Carnières, près de Cambrai. Sur rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: herbier — page en colonnes souples, bandes pleine largeur alternées papier / sauge, accents manuscrits comme sur l'affiche */
+:root{
+  --paper:#f7f3e9; --paper-2:#efe8d6; --ink:#24332a; --ink-soft:#56645a;
+  --sage:#2f5a3f; --sage-soft:#dfe7d6; --gold:#b98a3e; --line:#d8cfb8; --on-sage:#f7f3e9;
+  --f-display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --f-hand:"Caveat", "Segoe Print", cursive;
+  --f-body:"Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#171d18; --paper-2:#1f2720; --ink:#ece6d6; --ink-soft:#b3b9a8;
+  --sage:#9cc3a3; --sage-soft:#243328; --gold:#d8ae66; --line:#334036; --on-sage:#142017; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#171d18; --paper-2:#1f2720; --ink:#ece6d6; --ink-soft:#b3b9a8;
+  --sage:#9cc3a3; --sage-soft:#243328; --gold:#d8ae66; --line:#334036; --on-sage:#142017; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--sage)}
+h3{font-size:1.5rem}
+p{margin:0}
+.hand{font-family:var(--f-hand);color:var(--gold);font-size:1.6rem;line-height:1.1}
+.section{padding-block:72px}
+.section-head{display:grid;gap:8px;margin-bottom:36px;max-width:640px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:34px;height:34px;color:var(--sage)}
+.brand b{font-family:var(--f-display);font-size:1.7rem;font-weight:600;letter-spacing:.02em}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.95rem;flex-wrap:wrap}
+.nav ul a{text-decoration:none;color:var(--ink-soft)}
+.nav ul a:hover,.nav ul a:focus-visible{color:var(--sage)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:var(--on-sage);text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;font-size:.95rem;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--sage);border:1.5px solid var(--sage)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:56px 72px}
+.hero > div{min-width:0}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);color:var(--sage)}
+.hero h1 em{font-style:italic;color:var(--ink)}
+.hero .lead{font-size:1.15rem;color:var(--ink-soft);max-width:34em;margin-top:18px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .note{margin-top:22px;font-size:.9rem;color:var(--ink-soft)}
+.photo{position:relative;justify-self:center;width:100%;max-width:360px}
+.photo img{display:block;width:100%;aspect-ratio:350/505;object-fit:cover;border-radius:180px 180px 18px 18px;box-shadow:0 18px 40px -20px rgba(36,51,42,.45)}
+.photo .hand{position:absolute;left:-28px;bottom:26px;background:var(--paper);padding:8px 14px;border-radius:12px;transform:rotate(-4deg);border:1px solid var(--line);font-size:1.35rem}
+
+/* soins */
+.band{background:var(--paper-2);border-block:1px solid var(--line)}
+.soins{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.soin{grid-column:span 2;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:10px;align-content:start}
+.soin .ico{width:52px;height:52px;border-radius:50%;background:var(--sage-soft);display:grid;place-items:center;color:var(--sage)}
+.soin .ico svg{width:28px;height:28px}
+.soin p{color:var(--ink-soft);font-size:.98rem}
+.soin .tag{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700}
+
+/* animaux */
+.animaux{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.animaux > div{min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:1.15rem}
+.quote{font-family:var(--f-display);font-style:italic;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.25;color:var(--sage);border-left:2px solid var(--gold);padding-left:22px}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.about > div{min-width:0}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:1px solid var(--line)}
+.timeline li{padding:0 0 18px 22px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-5px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--sage)}
+.timeline b{font-family:var(--f-display);font-size:1.25rem;color:var(--sage);font-variant-numeric:tabular-nums;margin-right:6px}
+.about p + p{margin-top:14px}
+
+/* tarifs + contact */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.split > *{min-width:0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px}
+.prices{list-style:none;margin:16px 0 0;padding:0}
+.prices li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.prices li span:last-child{font-family:var(--f-display);font-size:1.4rem;font-weight:600;color:var(--sage);font-variant-numeric:tabular-nums;white-space:nowrap}
+.small{font-size:.9rem;color:var(--ink-soft);margin-top:16px}
+.contact-card{background:var(--sage);color:var(--on-sage);border-color:transparent}
+.contact-card h3{color:var(--on-sage)}
+.contact-list{display:grid;gap:16px;margin-top:18px}
+.contact-list div{display:grid;gap:2px}
+.contact-list small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;opacity:.8}
+.contact-list strong{font-size:1.2rem;user-select:all;overflow-wrap:anywhere}
+.copy{margin-top:22px;background:var(--on-sage);color:var(--sage)}
+
+.avis{columns:3 280px;column-gap:20px}
+.avis figure{break-inside:avoid;margin:0 0 20px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:12px}
+.avis blockquote{margin:0;font-size:1rem}
+.avis blockquote::before{content:"“";display:block;font-family:var(--f-display);font-size:3rem;line-height:.6;color:var(--gold)}
+.avis figcaption{font-size:.88rem;color:var(--ink-soft)}
+.avis figcaption b{color:var(--ink);font-weight:700}
+.avis .soin-tag{display:inline-block;margin-left:6px;color:var(--sage);font-weight:600}
+.soin{position:relative;padding-bottom:56px}
+.soin h3 a{text-decoration:none}
+.soin h3 a::after{content:"";position:absolute;inset:0;border-radius:16px}
+.soin::after{content:"En savoir plus";position:absolute;left:26px;bottom:22px;color:var(--sage);font-weight:700;font-size:.9rem;text-decoration:underline;text-underline-offset:4px}
+section[id],.page{scroll-margin-top:84px}
+.page h1{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--sage);margin-top:6px}
+.page .lead{font-size:1.15rem;color:var(--ink-soft);max-width:40em;margin-top:18px}
+.page h2{font-size:1.9rem;margin:34px 0 12px}
+.page-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:40px;align-items:start}
+.page-grid > *{min-width:0}
+.page-grid .card{display:grid;gap:14px;margin-top:34px}
+.page-grid .card .small{margin:0}
+.back{display:inline-block;margin-bottom:22px;color:var(--ink-soft);font-size:.92rem}
+.back::before{content:"‹ "}
+.facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.facts div{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:12px 18px;display:grid;gap:2px;min-width:0}
+.facts small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--ink-soft)}
+.facts strong{font-family:var(--f-display);font-size:1.3rem;color:var(--sage);font-weight:600}
+.fb{display:inline-flex;align-items:center;gap:8px}
+.fb svg{width:18px;height:18px}
+@media (max-width:860px){.page-grid{grid-template-columns:1fr;gap:0}}
+footer{padding-block:36px;font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--line)}
+footer .wrap{display:grid;gap:8px}
+
+@media (max-width:860px){
+  .hero,.animaux,.about,.split{grid-template-columns:1fr}
+  .soins{grid-template-columns:1fr 1fr}
+  .soin{grid-column:span 1}
+  .photo .hand{left:8px}
+  .nav ul{display:none}
+}
+@media (max-width:540px){
+  .soins{grid-template-columns:1fr}
+  .section{padding-block:52px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .soin{transition:transform .25s ease, border-color .25s ease}
+  .soin:hover{transform:translateY(-3px);border-color:var(--sage)}
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#accueil" aria-label="Namazen, accueil">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M24 10c5 5 6 13 0 22-6-9-5-17 0-22Z"/><path d="M12 18c6 1 11 7 12 14-7 0-13-5-12-14Z"/><path d="M36 18c-6 1-11 7-12 14 7 0 13-5 12-14Z"/><path d="M6 30c6 0 12 2 18 2s12-2 18-2"/></svg>
+      <b>Namazen</b>
+    </a>
+    <ul>
+      <li><a href="#soins">Les soins</a></li>
+      <li><a href="#animaux">Pour vos animaux</a></li>
+      <li><a href="#virginie">Qui suis-je</a></li>
+      <li><a href="#avis">Témoignages</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+    </ul>
+    <a class="btn" href="#contact">Prendre rendez-vous</a>
+  </div>
+</header>
+
+<main id="accueil"><div id="home">
+  <section class="wrap hero">
+    <div>
+      <p class="hand">Prendre soin de soi…</p>
+      <h1>Harmonie &amp; bien-être, <em>pour vous et vos animaux</em></h1>
+      <p class="lead">Des soins énergétiques et naturels pour retrouver l'équilibre, la sérénité, et renforcer le lien avec vos compagnons. Au cabinet à Carnières, près de Cambrai.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Réserver par SMS</a>
+        <a class="btn ghost" href="#soins">Découvrir les soins</a>
+      </div>
+      <p class="note">Soins en cabinet uniquement, sur rendez-vous.</p>
+    </div>
+    <figure class="photo" style="margin:0">
+      <img src="images/hero.jpg" alt="Une femme souriante entourée d'un cheval, de chiens et de chats, dans un pré au soleil couchant">
+      <span class="hand">une bulle de douceur ♡</span>
+    </figure>
+  </section>
+
+  <section class="band" id="soins">
+    <div class="wrap section">
+      <div class="section-head">
+        <p class="hand">Les soins</p>
+        <h2>Un moment pour vous, à votre rythme</h2>
+        <p style="color:var(--ink-soft)">Chaque séance commence par un temps d'échange pour comprendre vos attentes. Elle dure entre 45 minutes et une heure.</p>
+      </div>
+      <div class="soins">
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 26c-2-3-3-7-2-11l2-5M23 26c2-3 3-7 2-11l-2-5"/><circle cx="16" cy="11" r="3.5"/><path d="M16 4v2M10.5 6.5l1.4 1.4M21.5 6.5l-1.4 1.4"/></svg></div>
+          <h3><a href="#lahochi">Lahochi</a></h3>
+          <p>Une énergie douce, transmise par l'apposition des mains, pour rééquilibrer le corps et l'esprit.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 25v-4c-3-1-5-4-5-8a9 9 0 0 1 18-1l2 4h-2v4a2 2 0 0 1-2 2h-3v3"/><circle cx="12" cy="11" r="1"/><circle cx="16" cy="9" r="1"/><circle cx="18" cy="13" r="1"/></svg></div>
+          <h3><a href="#access-bars">Access Bars</a></h3>
+          <p>Un toucher léger sur 32 points de la tête pour libérer les blocages, apaiser le mental et retrouver de la légèreté.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M11 28c-3 0-4-3-4-7 0-5 1-9 4-9s4 4 4 9c0 4-1 7-4 7Z"/><path d="M21 22c-3 0-4-3-4-7 0-5 1-9 4-9s4 4 4 9c0 4-1 7-4 7Z"/></svg></div>
+          <h3><a href="#reflexologie">Réflexologie plantaire</a></h3>
+          <p>La stimulation des zones réflexes du pied pour une détente profonde et un bien-être global. Très appréciée des enfants agités ou qui dorment mal.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="16" cy="7" r="2.5"/><path d="M16 10v9M9 15l7 2 7-2M8 25c3-3 5-4 8-4s5 1 8 4"/><circle cx="16" cy="14" r=".6" fill="currentColor"/></svg></div>
+          <h3><a href="#chakras">Équilibrage et harmonisation des chakras</a></h3>
+          <p>Retrouver votre énergie et votre alignement intérieur, avec l'aide des pierres et du travail énergétique.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 26V14l4-6 2 3h3l4 3v12"/><path d="M20 26c0-4 2-6 5-6v6"/><circle cx="11" cy="14" r=".8" fill="currentColor"/></svg></div>
+          <span class="tag">Pour vos animaux</span>
+          <h3><a href="#communication-animale">Communication animale</a></h3>
+          <p>À partir d'une simple photo, écoutez ce que votre animal a à vous dire. Il a tant à partager.</p>
+        </article>
+        <article class="soin">
+          <div class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15 16 6l11 9"/><path d="M8 13v13h16V13"/><path d="M16 24c-3-2-4-4-2.5-6 1-1.2 2.5-.6 2.5.6 0-1.2 1.5-1.8 2.5-.6 1.5 2 .5 4-2.5 6Z"/></svg></div>
+          <span class="tag">Pour votre maison</span>
+          <h3><a href="#passeuse-de-lieux">Passeuse de lieux</a></h3>
+          <p>Une maison lourde, un lieu où l'on dort mal : j'aide à apaiser et harmoniser l'énergie de votre lieu de vie.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section animaux" id="animaux">
+    <div>
+      <p class="hand">Parce qu'ils ressentent… comme nous</p>
+      <h2 style="margin-top:8px">La communication animale</h2>
+      <p style="margin-top:16px;color:var(--ink-soft)">Un comportement qui change, un deuil, un déménagement, une arrivée dans la famille : votre chien, votre chat ou votre cheval vit lui aussi ces moments. La communication animale vous aide à mieux le comprendre.</p>
+      <ol class="steps" style="margin-top:26px">
+        <li><span>Envoyez une photo récente de votre animal, seul et les yeux visibles.</span></li>
+        <li><span>Préparez vos questions : ce que vous voulez lui dire ou lui demander.</span></li>
+        <li><span>Recevez le compte rendu de l'échange et parlons-en ensemble.</span></li>
+      </ol>
+    </div>
+    <blockquote class="quote" style="margin:0">Le lien qui nous unit est une force… prenons-en soin.</blockquote>
+  </section>
+
+  <section class="band" id="virginie">
+    <div class="wrap section about">
+      <div>
+        <p class="hand">Qui suis-je</p>
+        <h2 style="margin-top:8px">Virginie Gorczinski-Petit</h2>
+        <p style="margin-top:16px">Infirmière puis puéricultrice, j'ai passé plus de vingt ans auprès des bébés et des enfants, à l'hôpital puis en crèche. C'est là que j'ai découvert la réflexologie plantaire, pour soulager les petits maux des tout-petits.</p>
+        <p>Praticienne en soins énergétiques depuis 2019 et passeuse de lieux, toujours formée en présentiel, j'accompagne aujourd'hui les personnes de tous âges, et leurs animaux, vers la détente et le lâcher-prise.</p>
+        <p><span class="hand" style="font-size:1.4rem">Namasté + zen = Namazen</span></p>
+      </div>
+      <ol class="timeline">
+        <li><b>1998</b>Diplôme d'État d'infirmière</li>
+        <li><b>2002</b>Diplôme de puéricultrice</li>
+        <li><b>2019</b>Réflexologie plantaire bien-être et détente, IHM-Nord, Cambrai</li>
+        <li><b>Ensuite</b>Magnétisme traditionnel chinois, Access Bars, Lahochi, chakras, communication animale, passeuse de lieux. Toutes les formations suivies en présentiel.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap section" id="avis">
+    <div class="section-head">
+      <p class="hand">Ils en parlent</p>
+      <h2>Témoignages</h2>
+      <p style="color:var(--ink-soft)">Avis laissés sur la <a href="https://www.facebook.com/Namazen/reviews" target="_blank" rel="noopener">page Facebook de Namazen</a>.</p>
+    </div>
+    <div class="avis">
+      <figure><blockquote>Ma fille Charlotte, 9 ans, avait beaucoup de difficultés d'endormissement. Dès la première séance, elle s'est relaxée et s'est même endormie. Elle raconte à ses copines qu'elle se fait masser les pieds avec de jolies lumières et de la musique douce. Virginie est très douce et très à l'écoute.</blockquote><figcaption><b>Virginie B.</b><span class="soin-tag">Réflexologie enfant</span></figcaption></figure>
+      <figure><blockquote>Quasi une heure de douceur chaude sur tout le corps. Je recommande pour celles et ceux qui ont besoin de douceur, de chaleur, de réconfort, de relaxation… et grand besoin de souffler.</blockquote><figcaption><b>Marie G.</b><span class="soin-tag">Pierres chaudes</span></figcaption></figure>
+      <figure><blockquote>Des doigts magiques ! Je recommande !</blockquote><figcaption><b>Caroline L.</b></figcaption></figure>
+      <figure><blockquote>Toiletteuse canin, j'avais une douleur atroce au poignet à force de faire des coupes. Elle a réussi à me soulager et m'a apaisée en même temps. Je lui apporte toute ma confiance !</blockquote><figcaption><b>Marie C.</b></figcaption></figure>
+      <figure><blockquote>Je dors ! Enfin ! Merci !</blockquote><figcaption><b>Ninie</b></figcaption></figure>
+      <figure><blockquote>Super soins ! On sort transformé. Très bonne professionnelle, je la recommande vivement.</blockquote><figcaption><b>Annjer D.</b></figcaption></figure>
+      <figure><blockquote>Je suis très, très satisfaite, un bien fou. Son travail est impressionnant.</blockquote><figcaption><b>Isabelle F.</b></figcaption></figure>
+      <figure><blockquote>Merci Virginie pour ce moment agréable ! Bientôt un autre rendez-vous.</blockquote><figcaption><b>Marjorie V.</b></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="band" id="tarifs"><div class="wrap section">
+    <div class="section-head">
+      <p class="hand">Tarifs &amp; rendez-vous</p>
+      <h2>Simple et transparent</h2>
+    </div>
+    <div class="split">
+      <div class="card">
+        <h3>Tarifs</h3>
+        <ul class="prices">
+          <li><span>Séance adulte (1 h)</span><span>50 €</span></li>
+          <li><span>Enfant de moins de 12 ans, nourrisson</span><span>30 €</span></li>
+          <li><span>Communication animale</span><span>sur demande</span></li>
+        </ul>
+        <p class="small">Certaines mutuelles remboursent la réflexologie. Vérifiez auprès de la vôtre : une facture vous est remise après chaque séance.</p>
+      </div>
+      <div class="card contact-card" id="contact">
+        <h3>Prendre rendez-vous</h3>
+        <div class="contact-list">
+          <div><small>Par SMS</small><strong id="tel">06 33 65 88 44</strong></div>
+          <div><small>Par e-mail</small><strong>namazen59@free.fr</strong></div>
+          <div><small>Cabinet</small><strong>59217 Carnières</strong></div>
+          <div><small>Facebook</small><strong><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></strong></div>
+        </div>
+        <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+  <article class="page wrap section" id="p-reflexologie" data-title="Réflexologie plantaire à Carnières, près de Cambrai · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Pour les adultes, les enfants et les nourrissons</p>
+    <h1>Réflexologie plantaire à Carnières</h1>
+    <p class="lead">Le pied compte des milliers de terminaisons nerveuses. En stimulant ses zones réflexes par des pressions précises, la réflexologie invite le corps à se détendre en profondeur et à retrouver son équilibre. C'est le soin par lequel tout a commencé pour Virginie, puéricultrice de métier.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>45 min à 1 h</strong></div>
+      <div><small>Tarif</small><strong>50 € · enfant 30 €</strong></div>
+      <div><small>Où</small><strong>Au cabinet</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour toute personne qui a besoin de souffler : stress, fatigue, sommeil difficile, tensions. Elle convient très bien aux enfants agités ou qui ont du mal à s'endormir, et aux tout-petits.</p>
+        <h2>Comment se passe une séance ?</h2>
+        <ol class="steps">
+          <li><span>Un temps d'échange et un petit questionnaire pour comprendre vos attentes.</span></li>
+          <li><span>Vous vous installez confortablement, allongé et habillé. Seuls les pieds sont découverts.</span></li>
+          <li><span>Le soin, dans une ambiance douce et tamisée. Au fil des séances, il s'adapte à vous.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Certaines mutuelles remboursent la réflexologie. Une facture vous est remise après la séance.</p>
+        <p class="small"><b>Contre-indications :</b> problèmes cardiaques, problèmes veineux importants, mycoses des pieds, fractures, grossesse de moins de 5 mois.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20s%C3%A9ance%20de%20r%C3%A9flexologie%20plantaire." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-access-bars" data-title="Access Bars à Carnières, près de Cambrai · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Pour apaiser un mental qui tourne en boucle</p>
+    <h1>Access Bars</h1>
+    <p class="lead">Un toucher très léger sur 32 points de la tête, appelés « barres ». Le soin aide à relâcher les pensées et les schémas qui encombrent, pour retrouver calme et légèreté.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Environ 1 h</strong></div>
+      <div><small>Tarif</small><strong>50 €</strong></div>
+      <div><small>Où</small><strong>Au cabinet</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour les adultes comme pour les enfants (séance plus courte). Les personnes qui le reçoivent parlent souvent d'un meilleur sommeil, de moins de stress et d'une sensation de légèreté.</p>
+        <h2>Comment se passe une séance ?</h2>
+        <ol class="steps">
+          <li><span>Un temps d'échange sur ce que vous traversez.</span></li>
+          <li><span>Vous êtes allongé, habillé, les yeux fermés si vous le souhaitez.</span></li>
+          <li><span>Virginie pose délicatement les doigts sur les points de la tête. Beaucoup de personnes s'endorment.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Aucune préparation n'est nécessaire. Prévoyez un moment calme après la séance.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20s%C3%A9ance%20d%27Access%20Bars." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-lahochi" data-title="Soin Lahochi à Carnières, près de Cambrai · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Une énergie douce</p>
+    <h1>Lahochi</h1>
+    <p class="lead">Le Lahochi est un soin énergétique par apposition des mains. Doux et enveloppant, il aide le corps et l'esprit à se rééquilibrer et à relâcher les tensions.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Environ 1 h</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>Au cabinet</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour les personnes fatiguées, stressées ou en période de changement, qui ont besoin de se poser et de se recentrer. Il convient à tous les âges.</p>
+        <h2>Comment se passe une séance ?</h2>
+        <ol class="steps">
+          <li><span>Un temps d'échange pour faire le point.</span></li>
+          <li><span>Vous êtes allongé, habillé, dans une ambiance calme.</span></li>
+          <li><span>Virginie pose les mains sur différentes zones du corps, sans manipulation.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Le Lahochi peut se combiner avec l'harmonisation des chakras.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin%20Lahochi." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-chakras" data-title="Harmonisation des chakras à Carnières · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Retrouver son alignement</p>
+    <h1>Équilibrage et harmonisation des chakras</h1>
+    <p class="lead">Les chakras sont les sept centres d'énergie du corps, de la base de la colonne au sommet de la tête. Ce soin, avec les mains et les pierres, aide à les rééquilibrer pour retrouver énergie et sérénité.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Environ 1 h</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>Au cabinet</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour les personnes qui se sentent « décalées », sans énergie, ou qui traversent une période chargée en émotions.</p>
+        <h2>Comment se passe une séance ?</h2>
+        <ol class="steps">
+          <li><span>Un temps d'échange sur votre ressenti du moment.</span></li>
+          <li><span>Vous êtes allongé, habillé. Des pierres peuvent être posées le long du corps.</span></li>
+          <li><span>Virginie travaille chakra par chakra, puis vous laisse un temps de repos.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Virginie s'est formée à la lithothérapie, l'utilisation des pierres, qu'elle associe à ce soin.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20harmonisation%20des%20chakras." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-communication-animale" data-title="Communication animale, à distance · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Parce qu'ils ressentent… comme nous</p>
+    <h1>Communication animale</h1>
+    <p class="lead">À partir d'une simple photo, Virginie se connecte à votre animal pour lui transmettre vos questions et recueillir ce qu'il ressent. Pas besoin de vous déplacer.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Selon les questions</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>À distance</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour les chiens, chats, chevaux et tous les compagnons. Utile lors d'un changement de comportement, d'un déménagement, d'une arrivée dans la famille, d'un deuil, ou simplement pour mieux se comprendre.</p>
+        <h2>Comment ça se passe ?</h2>
+        <ol class="steps">
+          <li><span>Envoyez une photo récente de votre animal, seul et les yeux visibles.</span></li>
+          <li><span>Préparez vos questions : ce que vous voulez lui dire ou lui demander.</span></li>
+          <li><span>Recevez le compte rendu de l'échange, puis parlons-en ensemble.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">La communication animale ne remplace pas une consultation chez le vétérinaire.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20une%20communication%20animale%20pour%20mon%20animal." target="_blank" rel="noopener">Envoyer ma demande</a>
+      </aside>
+    </div>
+  </article>
+
+  <article class="page wrap section" id="p-passeuse-de-lieux" data-title="Passeuse de lieux, Nord et Cambrésis · Namazen" hidden>
+    <a class="back" href="#soins">Tous les soins</a>
+    <p class="hand">Pour votre maison</p>
+    <h1>Passeuse de lieux</h1>
+    <p class="lead">Une ambiance lourde, une pièce où l'on ne se sent pas bien, un sommeil agité depuis un emménagement : un lieu garde parfois une mémoire. Le travail de passeuse de lieux aide à apaiser et harmoniser l'énergie de votre lieu de vie.</p>
+    <div class="facts">
+      <div><small>Durée</small><strong>Selon le lieu</strong></div>
+      <div><small>Tarif</small><strong>Sur demande</strong></div>
+      <div><small>Où</small><strong>Votre lieu de vie</strong></div>
+    </div>
+    <div class="page-grid">
+      <div>
+        <h2>Pour qui ?</h2>
+        <p>Pour une maison, un appartement, un commerce, ou avant d'emménager dans un nouveau lieu.</p>
+        <h2>Comment ça se passe ?</h2>
+        <ol class="steps">
+          <li><span>Un premier échange pour comprendre ce que vous ressentez dans le lieu.</span></li>
+          <li><span>Virginie intervient pour libérer et harmoniser le lieu.</span></li>
+          <li><span>Un retour sur ce qui a été fait, et quelques conseils.</span></li>
+        </ol>
+      </div>
+      <aside class="card">
+        <h3>Bon à savoir</h3>
+        <p class="small" style="margin-top:10px">Contactez Virginie pour en parler avant tout rendez-vous.</p>
+        <a class="btn" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20vous%20parler%20d%27un%20lieu." target="_blank" rel="noopener">En parler sur WhatsApp</a>
+      </aside>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Namazen</strong> · Virginie Gorczinski-Petit · Carnières (Nord) · <a class="fb" href="https://www.facebook.com/Namazen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></svg>Suivre Namazen sur Facebook</a></p>
+    <p>Les soins proposés relèvent du bien-être et de la détente. Ils ne remplacent en aucun cas une consultation chez votre médecin ou votre vétérinaire, ni un traitement en cours.</p>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var home=document.getElementById('home');
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var homeTitle='Namazen · Soins énergétiques et réflexologie à Carnières';
+  function route(){
+    var h=decodeURIComponent(location.hash.slice(1));
+    var p=h?document.getElementById('p-'+h):null;
+    home.hidden=!!p;
+    pages.forEach(function(x){x.hidden=x!==p});
+    if(p){document.title=p.dataset.title;window.scrollTo(0,0);return}
+    document.title=homeTitle;
+    var t=h&&document.getElementById(h);
+    if(t)t.scrollIntoView();
+  }
+  window.addEventListener('hashchange',route);
+  route();
+})();
+</script>
+
+</body>
+</html>
