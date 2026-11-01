@@ -222,6 +222,14 @@ footer .wrap{display:grid;gap:8px}
   .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
   .nav ul a:hover::after,.nav ul a:focus-visible::after{transform:scaleX(1)}
 }
+.fab{display:none}
+@media (max-width:860px){
+  header{transition:transform .35s ease}
+  body.scrolled header{transform:translateY(-110%)}
+  .fab{display:grid;place-items:center;position:fixed;z-index:20;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--sage);color:var(--on-sage);box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;transform:scale(.4) translateY(20px);pointer-events:none;transition:opacity .3s ease,transform .35s cubic-bezier(.2,.9,.3,1.3)}
+  .fab svg{width:26px;height:26px}
+  body.scrolled .fab{opacity:1;transform:none;pointer-events:auto}
+}
 </style>
 </head>
 <body>
@@ -673,6 +681,8 @@ footer .wrap{display:grid;gap:8px}
 </footer>
 
 
+<a class="fab" href="#rendez-vous" aria-label="Prendre rendez-vous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></a>
+
 <dialog id="rdv" class="rdv" aria-labelledby="rdv-title">
   <div class="rdv-box" tabindex="-1" autofocus>
     <div class="rdv-top">
@@ -703,6 +713,8 @@ footer .wrap{display:grid;gap:8px}
 
 <script>
 (function(){
+  var sc=function(){document.body.classList.toggle('scrolled',window.scrollY>60)};
+  window.addEventListener('scroll',sc,{passive:true});sc();
   var rdv=document.getElementById('rdv');
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[href="#rendez-vous"]');
