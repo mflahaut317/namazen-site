@@ -108,6 +108,15 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:col
 .contact-list div{display:grid;gap:2px}
 .contact-list small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;opacity:.8}
 .contact-list strong{font-size:1.2rem;user-select:all;overflow-wrap:anywhere}
+.rdv{border:0;padding:0;background:transparent;max-width:min(440px,calc(100vw - 32px));width:100%;margin:auto;overflow:visible}
+.rdv::backdrop{background:rgba(8,12,9,.75);backdrop-filter:blur(3px)}
+.rdv .contact-card{position:relative;padding:34px 30px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.rdv-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.12);color:var(--on-sage);font-size:1.6rem;line-height:1;cursor:pointer}
+.rdv-close:hover{background:rgba(20,32,23,.22)}
+.rdv-note{margin-top:8px;font-size:.95rem;opacity:.85}
+@media (prefers-reduced-motion:no-preference){.rdv[open] .contact-card{animation:pop .35s cubic-bezier(.2,.9,.3,1.2) both}.rdv[open]::backdrop{animation:fadeIn .3s ease both}}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .copy{margin-top:22px;background:var(--on-sage);color:var(--sage)}
 
 .avis{columns:3 280px;column-gap:20px}
@@ -206,9 +215,8 @@ footer .wrap{display:grid;gap:8px}
       <li><a href="#formations">Formations</a></li>
       <li><a href="#virginie">Qui suis-je</a></li>
       <li><a href="#avis">Témoignages</a></li>
-      <li><a href="#tarifs">Rendez-vous</a></li>
     </ul>
-    <a class="btn" href="#contact">Prendre rendez-vous</a>
+    <a class="btn" href="#rendez-vous">Prendre rendez-vous</a>
   </div>
 </header>
 
@@ -219,7 +227,7 @@ footer .wrap{display:grid;gap:8px}
       <h1>Harmonie &amp; <span style="white-space:nowrap">bien-être</span>, <em>pour vous et vos animaux</em></h1>
       <p class="lead">Des soins énergétiques et naturels pour retrouver l'équilibre, la sérénité, et renforcer le lien avec vos compagnons. Au cabinet à Carnières, près de Cambrai.</p>
       <div class="actions">
-        <a class="btn" href="#contact">Réserver par SMS</a>
+        <a class="btn" href="#rendez-vous">Réserver par SMS</a>
         <a class="btn ghost" href="#soins">Découvrir les soins</a>
       </div>
       <p class="note">Soins en cabinet uniquement, sur rendez-vous.</p>
@@ -362,30 +370,6 @@ footer .wrap{display:grid;gap:8px}
     </div>
   </section>
 
-  <section class="band" id="tarifs"><div class="wrap section">
-    <div class="section-head">
-      <p class="hand">Tarifs &amp; rendez-vous</p>
-      <h2>Un tarif adapté à chaque soin</h2>
-    </div>
-    <div class="split">
-      <div class="card">
-        <h3>Tarifs sur demande</h3>
-        <p style="margin-top:14px">Chaque soin est différent, et un tarif adapté est proposé aux enfants et aux nourrissons. Écrivez-moi pour connaître le tarif du soin qui vous intéresse. Je propose aussi des forfaits de 4 ou 5 séances.</p>
-        <p class="small">Certaines mutuelles remboursent la réflexologie. Vérifiez auprès de la vôtre : une facture vous est remise après chaque séance.</p>
-      </div>
-      <div class="card contact-card" id="contact">
-        <h3>Prendre rendez-vous</h3>
-        <div class="contact-list">
-          <div><small>Par SMS</small><strong id="tel">06 33 65 88 44</strong></div>
-          <div><small>Par e-mail</small><strong>namazen59@free.fr</strong></div>
-          <div><small>Cabinet</small><strong>3 rue de l'Ange, 59217 Carnières</strong></div>
-          <div><small>Horaires</small><strong>Uniquement sur rendez-vous</strong></div>
-          <div><small>Facebook</small><strong><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></strong></div>
-        </div>
-        <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-      </div>
-    </div>
-  </div></section>
 </div>
 
   <article class="page wrap section" id="p-reflexologie" data-title="Réflexologie plantaire à Carnières, près de Cambrai · Namazen" hidden>
@@ -665,8 +649,32 @@ footer .wrap{display:grid;gap:8px}
 </footer>
 
 
+<dialog id="rdv" class="rdv" aria-labelledby="rdv-title">
+      <div class="card contact-card">
+        <button class="rdv-close" type="button" aria-label="Fermer">×</button>
+        <h3 id="rdv-title">Prendre rendez-vous</h3>
+        <p class="rdv-note">Tarifs sur demande, adaptés à chaque soin.</p>
+        <div class="contact-list">
+          <div><small>Par SMS</small><strong id="tel">06 33 65 88 44</strong></div>
+          <div><small>Par e-mail</small><strong>namazen59@free.fr</strong></div>
+          <div><small>Cabinet</small><strong>3 rue de l'Ange, 59217 Carnières</strong></div>
+          <div><small>Horaires</small><strong>Uniquement sur rendez-vous</strong></div>
+          <div><small>Facebook</small><strong><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></strong></div>
+        </div>
+        <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+      </div>
+</dialog>
+
 <script>
 (function(){
+  var rdv=document.getElementById('rdv');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href="#rendez-vous"]');
+    if(!a)return;e.preventDefault();e.stopImmediatePropagation();
+    if(rdv.showModal)rdv.showModal();else rdv.setAttribute('open','');
+  },true);
+  rdv.querySelector('.rdv-close').addEventListener('click',function(){rdv.close()});
+  rdv.addEventListener('click',function(e){if(e.target===rdv)rdv.close()});
   var home=document.getElementById('home');
   var pages=[].slice.call(document.querySelectorAll('.page'));
   var homeTitle='Namazen · Soins énergétiques et réflexologie à Carnières';
@@ -735,6 +743,7 @@ footer .wrap{display:grid;gap:8px}
   lb.addEventListener('click',function(e){if(e.target===lb||e.target===lbi)close()});
   document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
   route();
+  if(/^#(rendez-vous|contact|tarifs)$/.test(location.hash)&&rdv.showModal)rdv.showModal();
   requestAnimationFrame(function(){document.documentElement.classList.add('smooth')});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
