@@ -108,14 +108,37 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:col
 .contact-list div{display:grid;gap:2px}
 .contact-list small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;opacity:.8}
 .contact-list strong{font-size:1.2rem;user-select:all;overflow-wrap:anywhere}
-.rdv{border:0;padding:0;background:transparent;max-width:min(440px,calc(100vw - 32px));width:100%;margin:auto;overflow:visible}
-.rdv::backdrop{background:rgba(8,12,9,.75);backdrop-filter:blur(3px)}
-.rdv .contact-card{position:relative;padding:34px 30px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.rdv-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.12);color:var(--on-sage);font-size:1.6rem;line-height:1;cursor:pointer}
-.rdv-close:hover{background:rgba(20,32,23,.22)}
-.rdv-note{margin-top:8px;font-size:.95rem;opacity:.85}
-.rdv-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(20,32,23,.2)}
-@media (prefers-reduced-motion:no-preference){.rdv[open] .contact-card{animation:pop .35s cubic-bezier(.2,.9,.3,1.2) both}.rdv[open]::backdrop{animation:fadeIn .3s ease both}}
+.rdv{border:0;padding:0;background:transparent;max-width:min(460px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 24px);margin:auto;overflow:visible;color:var(--on-sage)}
+.rdv::backdrop{background:rgba(8,12,9,.78);backdrop-filter:blur(4px)}
+.rdv-box{background:var(--sage);border-radius:22px;overflow:hidden auto;max-height:calc(100dvh - 24px);box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 0 1px rgba(236,230,214,.08)}
+.rdv-top{position:relative;height:170px}
+.rdv-top img{width:100%;height:100%;object-fit:cover;display:block}
+.rdv-top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,23,.15) 0%,rgba(20,32,23,.35) 45%,var(--sage) 92%)}
+.rdv-head{position:absolute;left:28px;right:28px;bottom:6px;z-index:1}
+.rdv-head .hand{font-family:var(--f-hand);font-size:1.45rem;color:#f7f3e9;margin:0;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.rdv-head h3{font-size:2rem;color:var(--on-sage)}
+.rdv-close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.55);color:#f7f3e9;font-size:1.5rem;line-height:1;cursor:pointer;backdrop-filter:blur(4px);transition:background .2s,transform .2s}
+.rdv-close:hover{background:rgba(20,32,23,.8);transform:rotate(90deg)}
+.rdv-body{padding:10px 28px 26px}
+.rdv-note{margin:0;font-size:.98rem;line-height:1.5;opacity:.9}
+.rdv-actions{display:grid;gap:10px;margin-top:18px}
+.rdv-actions .btn{justify-content:center;margin:0;padding:14px 20px}
+.rdv:focus,.rdv-box:focus{outline:none}
+.rdv-close:focus{outline:none}.rdv-close:focus-visible{outline:2px solid #f7f3e9;outline-offset:2px}
+.rdv .copy{background:var(--on-sage);color:var(--sage)}
+.rdv-sms{background:transparent;color:var(--on-sage);box-shadow:inset 0 0 0 2px var(--on-sage)}
+.rdv-sms:hover{background:rgba(20,32,23,.08)}
+.rdv-list{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:4px}
+.rdv-list li{display:flex;align-items:center;gap:14px;padding:9px 10px;margin:0 -10px;border-radius:12px;transition:background .2s}
+.rdv-list li:hover{background:rgba(20,32,23,.07)}
+.ri{flex:none;width:38px;height:38px;border-radius:50%;background:rgba(20,32,23,.12);display:grid;place-items:center}
+.ri svg{width:19px;height:19px}
+.rdv-list div{display:grid;min-width:0}
+.rdv-list small{text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;opacity:.7}
+.rdv-list a,.rdv-list span{color:var(--on-sage);font-weight:700;font-size:1.05rem;text-decoration:none;overflow-wrap:anywhere}
+.rdv-list a:hover{text-decoration:underline}
+.rdv-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid rgba(20,32,23,.2);font-family:var(--f-hand);font-size:1.3rem;text-align:center}
+@media (prefers-reduced-motion:no-preference){.rdv[open] .rdv-box{animation:pop .35s cubic-bezier(.2,.9,.3,1.2) both}.rdv[open]::backdrop{animation:fadeIn .3s ease both}}
 @keyframes pop{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .copy{margin-top:22px;background:var(--on-sage);color:var(--sage)}
@@ -651,20 +674,31 @@ footer .wrap{display:grid;gap:8px}
 
 
 <dialog id="rdv" class="rdv" aria-labelledby="rdv-title">
-      <div class="card contact-card">
-        <button class="rdv-close" type="button" aria-label="Fermer">×</button>
+  <div class="rdv-box" tabindex="-1" autofocus>
+    <div class="rdv-top">
+      <img src="images/cabinet-namaste.jpg" alt="" loading="lazy">
+      <button class="rdv-close" type="button" aria-label="Fermer">×</button>
+      <div class="rdv-head">
+        <p class="hand">Au plaisir de vous accueillir</p>
         <h3 id="rdv-title">Prendre rendez-vous</h3>
-        <p class="rdv-note">Tarifs sur demande, adaptés à chaque soin.</p>
-        <div class="contact-list">
-          <div><small>Par SMS</small><strong id="tel">06 33 65 88 44</strong></div>
-          <div><small>Par e-mail</small><strong>namazen59@free.fr</strong></div>
-          <div><small>Cabinet</small><strong>3 rue de l'Ange, 59217 Carnières</strong></div>
-          <div><small>Horaires</small><strong>Uniquement sur rendez-vous</strong></div>
-          <div><small>Facebook</small><strong><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></strong></div>
-        </div>
-        <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <p class="rdv-note rdv-foot">Je propose aussi des forfaits de 4 ou 5 séances.</p>
       </div>
+    </div>
+    <div class="rdv-body">
+      <p class="rdv-note">Écrivez-moi pour convenir d'un moment ensemble. Tarifs sur demande, adaptés à chaque soin.</p>
+      <div class="rdv-actions">
+        <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>Écrire sur WhatsApp</a>
+        <a class="btn rdv-sms" href="sms:+33633658844">Envoyer un SMS</a>
+      </div>
+      <ul class="rdv-list">
+        <li><span class="ri" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><small>Téléphone</small><a href="tel:+33633658844" id="tel">06 33 65 88 44</a></div></li>
+        <li><span class="ri" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>E-mail</small><a href="mailto:namazen59@free.fr">namazen59@free.fr</a></div></li>
+        <li><span class="ri" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><small>Cabinet</small><a href="https://www.google.com/maps/search/?api=1&amp;query=3+rue+de+l%27Ange+59217+Carni%C3%A8res" target="_blank" rel="noopener">3 rue de l'Ange, 59217 Carnières</a></div></li>
+        <li><span class="ri" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Horaires</small><span>Uniquement sur rendez-vous</span></div></li>
+        <li><span class="ri" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15Z"/></svg></span><div><small>Facebook</small><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></div></li>
+      </ul>
+      <p class="rdv-foot">Je propose aussi des forfaits de 4 ou 5 séances.</p>
+    </div>
+  </div>
 </dialog>
 
 <script>
