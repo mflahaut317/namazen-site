@@ -192,6 +192,7 @@ section[id],.page{scroll-margin-top:84px}
 .diplome small{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--gold);font-weight:700}
 .diplome h3{font-size:1.35rem;color:var(--sage)}
 .diplome p{color:var(--ink-soft);font-size:.95rem}
+.more-mobile{display:none}
 .diplome .meta{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;font-size:.9rem}
 @media (max-width:860px){.galerie{grid-template-columns:1fr 1fr;grid-template-rows:auto}.galerie figure:first-child{grid-row:auto;grid-column:span 2}.galerie figure:first-child img{aspect-ratio:4/3}}
 footer{padding-block:36px;font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--line)}
@@ -215,6 +216,9 @@ footer .wrap{display:grid;gap:8px}
 }
 @media (max-width:540px){
   .soins{grid-template-columns:1fr}
+  .formations:not(.open) .diplome:nth-child(n+3){display:none}
+  .avis:not(.open) figure:nth-child(n+4){display:none}
+  .more-mobile{display:flex;justify-content:center;margin-top:22px}
   .soins:not(.open) .soin:nth-child(n+4){display:none}
   .section{padding-block:52px}
 }
@@ -390,6 +394,7 @@ footer .wrap{display:grid;gap:8px}
         <article class="diplome"><small>Chrysalid</small><h3>Équilibrage et harmonisation des chakras</h3><p>Formation suivie avec succès, certificat de pratique.</p></article>
         <article class="diplome"><small>Sautreau Academy, Cambrai</small><h3>Massage bien-être aux pierres chaudes</h3><p>Technique de massage pierres chaudes, certificat n° 0002/2022.</p><span class="meta">Mai et juin 2022</span></article>
       </div>
+      <div class="more-mobile"><button class="btn ghost" id="voir-formations" type="button" aria-expanded="false">Voir plus de formations</button></div>
       <p class="small" style="margin-top:20px">Je suis également formée à l'Access Bars, au Lahochi, à la communication animale et au travail de passeuse de lieux.</p>
     </div>
   </section>
@@ -410,6 +415,7 @@ footer .wrap{display:grid;gap:8px}
       <figure><blockquote>Je suis très, très satisfaite, un bien fou. Son travail est impressionnant.</blockquote><figcaption><b>Isabelle F.</b></figcaption></figure>
       <figure><blockquote>Merci Virginie pour ce moment agréable ! Bientôt un autre rendez-vous.</blockquote><figcaption><b>Marjorie V.</b></figcaption></figure>
     </div>
+    <div class="more-mobile"><button class="btn ghost" id="voir-avis" type="button" aria-expanded="false">Voir plus de témoignages</button></div>
   </section>
 
 </div>
@@ -787,6 +793,13 @@ footer .wrap{display:grid;gap:8px}
   });
   window.addEventListener('popstate',function(){if(clean)route()});
   window.addEventListener('hashchange',function(){if(!clean)route()});
+  function more(btnId,listSel,secId,label){var bt=document.getElementById(btnId);
+    bt.addEventListener('click',function(){var open=bt.getAttribute('aria-expanded')==='true';
+      document.querySelector(listSel).classList.toggle('open',!open);
+      bt.setAttribute('aria-expanded',String(!open));bt.textContent=open?label:'Voir moins';
+      if(open)document.getElementById(secId).scrollIntoView({behavior:'smooth'});});}
+  more('voir-formations','.formations','formations','Voir plus de formations');
+  more('voir-avis','.avis','avis','Voir plus de témoignages');
   var vp=document.getElementById('voir-plus');
   vp.addEventListener('click',function(){var open=vp.getAttribute('aria-expanded')==='true';
     document.querySelectorAll('.soin-extra').forEach(function(c){c.hidden=open});
