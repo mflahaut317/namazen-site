@@ -114,6 +114,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:col
 .rdv-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.12);color:var(--on-sage);font-size:1.6rem;line-height:1;cursor:pointer}
 .rdv-close:hover{background:rgba(20,32,23,.22)}
 .rdv-note{margin-top:8px;font-size:.95rem;opacity:.85}
+.rdv-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(20,32,23,.2)}
 @media (prefers-reduced-motion:no-preference){.rdv[open] .contact-card{animation:pop .35s cubic-bezier(.2,.9,.3,1.2) both}.rdv[open]::backdrop{animation:fadeIn .3s ease both}}
 @keyframes pop{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -662,6 +663,7 @@ footer .wrap{display:grid;gap:8px}
           <div><small>Facebook</small><strong><a href="https://www.facebook.com/Namazen" target="_blank" rel="noopener">facebook.com/Namazen</a></strong></div>
         </div>
         <a class="btn copy" id="copy-tel" href="https://wa.me/33633658844?text=Bonjour%20Virginie%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20soin." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        <p class="rdv-note rdv-foot">Je propose aussi des forfaits de 4 ou 5 séances.</p>
       </div>
 </dialog>
 
