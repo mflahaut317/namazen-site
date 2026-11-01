@@ -117,7 +117,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:col
 .rdv-head{position:absolute;left:28px;right:28px;bottom:6px;z-index:1}
 .rdv-head .hand{font-family:var(--f-hand);font-size:1.45rem;color:#f7f3e9;margin:0;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 .rdv-head h3{font-size:2rem;color:var(--on-sage)}
-.rdv-close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.55);color:#f7f3e9;font-size:1.5rem;line-height:1;cursor:pointer;backdrop-filter:blur(4px);transition:background .2s,transform .2s}
+.rdv-close{padding:0;display:grid;place-items:center;-webkit-appearance:none;appearance:none;position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(20,32,23,.55);color:#f7f3e9;font-size:1.5rem;line-height:1;cursor:pointer;backdrop-filter:blur(4px);transition:background .2s,transform .2s}
 .rdv-close:hover{background:rgba(20,32,23,.8);transform:rotate(90deg)}
 .rdv-body{padding:10px 28px 26px}
 .rdv-note{margin:0;font-size:.98rem;line-height:1.5;opacity:.9}
@@ -182,7 +182,7 @@ section[id],.page{scroll-margin-top:84px}
 .galerie figure:hover img{transform:scale(1.03)}
 .lightbox{position:fixed;inset:0;z-index:50;background:rgba(8,12,9,.92);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;cursor:zoom-out}
-.lightbox button{position:absolute;background:rgba(236,230,214,.12);color:#ece6d6;border:0;width:48px;height:48px;border-radius:50%;font-size:1.6rem;cursor:pointer;display:grid;place-items:center}
+.lightbox button{padding:0;-webkit-appearance:none;appearance:none;position:absolute;background:rgba(236,230,214,.12);color:#ece6d6;border:0;width:48px;height:48px;border-radius:50%;font-size:1.6rem;cursor:pointer;display:grid;place-items:center}
 .lightbox button:hover{background:rgba(236,230,214,.25)}
 .lightbox .lb-close{top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
 .lightbox .lb-prev{left:max(16px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
@@ -669,7 +669,7 @@ footer .wrap{display:grid;gap:8px}
   <img id="lb-img" src="" alt="">
   <button class="lb-prev" id="lb-prev" type="button" aria-label="Photo précédente">‹</button>
   <button class="lb-next" id="lb-next" type="button" aria-label="Photo suivante">›</button>
-  <button class="lb-close" id="lb-close" type="button" aria-label="Fermer">×</button>
+  <button class="lb-close" id="lb-close" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </div>
 
 <footer>
@@ -687,7 +687,7 @@ footer .wrap{display:grid;gap:8px}
   <div class="rdv-box" tabindex="-1" autofocus>
     <div class="rdv-top">
       <img src="images/cabinet-namaste.jpg" alt="" loading="lazy">
-      <button class="rdv-close" type="button" aria-label="Fermer">×</button>
+      <button class="rdv-close" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       <div class="rdv-head">
         <p class="hand">Au plaisir de vous accueillir</p>
         <h3 id="rdv-title">Prendre rendez-vous</h3>
