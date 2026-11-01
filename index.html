@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#171d18">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Namazen · Soins énergétiques et réflexologie à Carnières</title>
 <meta name="description" content="Réflexologie plantaire, Access Bars, Lahochi, chakras, communication animale et passeuse de lieux à Carnières, près de Cambrai. Sur rendez-vous.">
@@ -10,18 +12,13 @@
 <style>
 /* Layout: herbier — page en colonnes souples, bandes pleine largeur alternées papier / sauge, accents manuscrits comme sur l'affiche */
 :root{
-  --paper:#f7f3e9; --paper-2:#efe8d6; --ink:#24332a; --ink-soft:#56645a;
-  --sage:#2f5a3f; --sage-soft:#dfe7d6; --gold:#b98a3e; --line:#d8cfb8; --on-sage:#f7f3e9;
+  --paper:#171d18; --paper-2:#1f2720; --ink:#ece6d6; --ink-soft:#b3b9a8;
+  --sage:#9cc3a3; --sage-soft:#243328; --gold:#d8ae66; --line:#334036; --on-sage:#142017;
+  color-scheme:dark;
   --f-display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --f-hand:"Caveat", "Segoe Print", cursive;
   --f-body:"Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#171d18; --paper-2:#1f2720; --ink:#ece6d6; --ink-soft:#b3b9a8;
-  --sage:#9cc3a3; --sage-soft:#243328; --gold:#d8ae66; --line:#334036; --on-sage:#142017; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#171d18; --paper-2:#1f2720; --ink:#ece6d6; --ink-soft:#b3b9a8;
-  --sage:#9cc3a3; --sage-soft:#243328; --gold:#d8ae66; --line:#334036; --on-sage:#142017; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65}
@@ -175,7 +172,7 @@ footer .wrap{display:grid;gap:8px}
   <section class="wrap hero">
     <div>
       <p class="hand">Prendre soin de soi…</p>
-      <h1>Harmonie &amp; bien-être, <em>pour vous et vos animaux</em></h1>
+      <h1>Harmonie &amp; <span style="white-space:nowrap">bien-être</span>, <em>pour vous et vos animaux</em></h1>
       <p class="lead">Des soins énergétiques et naturels pour retrouver l'équilibre, la sérénité, et renforcer le lien avec vos compagnons. Au cabinet à Carnières, près de Cambrai.</p>
       <div class="actions">
         <a class="btn" href="#contact">Réserver par SMS</a>
