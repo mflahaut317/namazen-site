@@ -18,3 +18,7 @@ Site en ligne : https://namazen59.fr
 
 - Tarifs : volontairement « sur demande » partout.
 - Photos : ajouter une photo de Virginie (le cabinet est déjà en photo).
+
+## Pages des soins
+
+Chaque soin a sa propre adresse (namazen59.fr/lahochi, ...). Les fichiers `lahochi.html`, `access-bars.html`, etc. sont générés à partir de `index.html` : après chaque modification de `index.html`, lancer `python3 build.py` avant de publier.
