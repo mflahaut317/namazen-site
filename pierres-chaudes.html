@@ -203,6 +203,15 @@ footer .wrap{display:grid;gap:8px}
   .soin{grid-column:span 1}
   .photo .hand{left:8px}
   .nav ul{display:none}
+  .nav{flex-wrap:nowrap}
+  .nav > .btn{margin-left:auto;padding:9px 15px;font-size:.85rem;white-space:nowrap}
+  .brand svg{width:28px;height:28px}
+  .brand b{font-size:1.45rem}
+}
+@media (max-width:360px){
+  .nav > .btn{padding:8px 12px;font-size:.78rem}
+  .brand b{font-size:1.25rem}
+  .brand{gap:6px}
 }
 @media (max-width:540px){
   .soins{grid-template-columns:1fr}
